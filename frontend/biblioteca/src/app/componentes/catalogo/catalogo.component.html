@@ -1,0 +1,23 @@
+<div class="catalogo">
+    <h2>Catálogo de Livros</h2>
+  
+
+    <div *ngIf="livros.length > 0; else noBooks">
+      <ul>
+        <li *ngFor="let livro of livros">
+          <h3>{{ livro.nome_livro }}</h3>
+          <p><strong>Autor:</strong> {{ livro.autor }}</p>
+          <p><strong>Gênero:</strong> {{ livro.genero }}</p>
+          <p><strong>Sinopse:</strong> {{ livro.sinopse }}</p>
+          <p><strong>Data de Publicação:</strong> {{ livro.data_publicacao | date }}</p>
+          <img *ngIf="livro.foto_da_capa" [src]="livro.foto_da_capa" alt="Capa do livro" />
+        </li>
+      </ul>
+    </div>
+  
+ 
+    <ng-template #noBooks>
+      <p>Nenhum livro encontrado no catálogo.</p>
+    </ng-template>
+  </div>
+  
